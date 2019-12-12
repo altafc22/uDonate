@@ -19,7 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".view.UsersActivity"></activity>
+        <activity android:name=".view.UsersActivity"
+
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".view.LastActivity"
             android:screenOrientation="portrait" />

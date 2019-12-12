@@ -317,27 +317,32 @@ public class MainActivity extends AppCompatActivity {
 
     public void gotoNextActivity(View v)
     {
-        if(et_name.length()<1)
-            et_name.setError("Enter Name");
-        else if(et_phone.length()<1)
-            et_phone.setError("Enter Phone Number");
-        else if(et_email.length()<1)
-            et_email.setError("Enter Email ID");
-        else if(!myApplication.isValidEmail(et_email.getText().toString()))
+        String name,email,phone;
+
+        name = et_name.getText().toString();
+        email = et_email.getText().toString();
+        phone = et_phone.getText().toString();
+
+        if(name.length()<1 || name.equals(""))
+            //et_name.setError("Enter Name");
+            name = "Unknown";
+        if(phone.length()<1 || phone.equals(""))
+            phone = "Unknown Number";
+        if(email.length()<1 || email.equals(""))
+            email = "--";
+        /*else if(!myApplication.isValidEmail(et_email.getText().toString()))
             et_email.setError("Enter Valid Email ID");
-        else
-        {
+        */
+        //else
+        //{
             myApplication.sendData("*A#");
-            String name = et_name.getText().toString();
-            String email = et_email.getText().toString();
-            String phone = et_phone.getText().toString();
 
             User user = new User(name,phone,email);
             saveUser(user);
             myApplication.updateDonateCount(myApplication.getDonationCount()+1);
             startActivity(new Intent(MainActivity.this,LastActivity.class));
             finish();
-        }
+       // }
     }
 
     private void saveUser(User user)

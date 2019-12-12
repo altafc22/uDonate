@@ -98,6 +98,7 @@ public class SplashActivity extends AppCompatActivity {
                 myApplication.updateDonateCount(0);
                 tv_donate_count.setText(String.valueOf(myApplication.getDonationCount()));
                 myApplication.sendData("*B#");
+                Toasty.success(SplashActivity.this,"Counte Reset Successfuly.",Toasty.LENGTH_SHORT).show();
                 return false;
             }
         });

@@ -59,6 +59,10 @@ public class MyApplication extends Application {
         {
             updateDonateCount(0);
             donation_count = 0;
+            sendData("*B#");
+            donation_count = 1;
+            updateDonateCount(donation_count);
+            sendData("*A*");
         }
        return donation_count;
     }
