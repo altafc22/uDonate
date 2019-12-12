@@ -1,0 +1,93 @@
+<LinearLayout android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="3dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@drawable/rounded_border"
+        android:src="@drawable/ic_avatar"
+        android:padding="8dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="10dp"
+        android:tint="@color/colorDarkGreen"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name: "
+                android:fontFamily="@font/opensans_semibold"
+                android:textColor="@color/primary_text"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="text"
+                android:id="@+id/tv_name"
+                android:fontFamily="@font/opensans_semibold"
+                android:textColor="@color/primary_text"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mobile: "
+                android:textSize="12sp"
+                android:fontFamily="@font/opensans_regular"
+                android:textColor="@color/primary_text"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="+971 501 200 000"
+                android:id="@+id/tv_mobile"
+                android:textSize="12sp"
+                android:fontFamily="@font/opensans_regular"
+                android:textColor="@color/primary_text"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email: "
+                android:textSize="12sp"
+                android:fontFamily="@font/opensans_regular"
+                android:textColor="@color/primary_text"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="email@email.com"
+            android:id="@+id/tv_email"
+            android:textSize="12sp"
+            android:fontFamily="@font/opensans_regular"
+            android:textColor="@color/primary_text"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="email@email.com"
+            android:id="@+id/tv_srNo"
+            android:textSize="12sp"
+            android:visibility="gone"
+            android:fontFamily="@font/opensans_regular"
+            android:textColor="@color/primary_text"/>
+
+    </LinearLayout>
+
+</LinearLayout>
