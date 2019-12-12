@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.airbnb.lottie.LottieAnimationView;
@@ -39,6 +40,7 @@ public class SplashActivity extends AppCompatActivity {
     static final String LOG_SPLASH_ACTIVITY = "SplashActivity";
     View decorView;
     TextView tv_donate_count;
+    LinearLayout donate_count_layout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +50,8 @@ public class SplashActivity extends AppCompatActivity {
         anim_view = findViewById(R.id.anim_view);
         decorView = getWindow().getDecorView();
         tv_donate_count = findViewById(R.id.tv_donate_count);
+        donate_count_layout = findViewById(R.id.donate_count_layout);
+
         if (myApplication.sharedPreferences.getString("device_name", null) != null) {
             myApplication.startBtSearch();
         }else
@@ -84,6 +88,16 @@ public class SplashActivity extends AppCompatActivity {
                     isBtStatusRegistered = false;
                     Log.d(LOG_SPLASH_ACTIVITY, "BT_STATUS_RECEIVER UN-REGISTERED");
                 }
+                return false;
+            }
+        });
+
+        donate_count_layout.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                myApplication.updateDonateCount(0);
+                tv_donate_count.setText(String.valueOf(myApplication.getDonationCount()));
+                myApplication.sendData("*B#");
                 return false;
             }
         });
@@ -135,6 +149,7 @@ public class SplashActivity extends AppCompatActivity {
                         myApplication.bt_device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                         Toasty.success(SplashActivity.this,myApplication.bt_device.getName()+" Connected"
                                 ,Toasty.LENGTH_SHORT,true).show();
+
                         myApplication.stopBtSearch();
                         // new add
                         if(btInitialHandler!=null)
@@ -148,7 +163,7 @@ public class SplashActivity extends AppCompatActivity {
                                 Log.d("MY APPLICATION", "trying to connect Bluetooth after 10 seconds");
                                 //allButtons();
                                 firstDataSend = true;
-                                myApplication.sendData("*A#");
+                                myApplication.sendData("*C#");
                             }
                         }, 5000);
                         /*if(firstDataSend==true)
@@ -260,6 +275,4 @@ public class SplashActivity extends AppCompatActivity {
                     WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         }
     }
-
-
 }

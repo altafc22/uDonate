@@ -74,7 +74,8 @@
             android:id="@+id/et_email"
             android:hint="Enter Email"
             android:maxLines="1"
-            android:maxLength="100"
+            android:maxLength="50"
+            android:inputType="textEmailAddress"
             android:fontFamily="@font/opensans_regular"
             android:textColor="@color/colorRed"
             android:textSize="20sp"/>

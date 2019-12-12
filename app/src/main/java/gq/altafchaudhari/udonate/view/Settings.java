@@ -247,6 +247,7 @@ public class Settings extends AppCompatActivity {
                     System.out.println("Device Address: "+sharedPreferences.getString("device_address",null));
                     if(myApplication.btt==null)
                         myApplication.connectToBt();
+                    myApplication.sendData("*C#");
                 }
                 dialog.dismiss();
                 myApplication.showToast  = false;
@@ -380,13 +381,6 @@ public class Settings extends AppCompatActivity {
             setResult(1,intent);
             finish();
         }
-    }
-
-
-    public void resetDonationCount(View v)
-    {
-        myApplication.updateDonateCount(0);
-        myApplication.sendData("");
     }
 
 }

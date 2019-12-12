@@ -104,6 +104,7 @@
         android:layout_margin="40dp"
         android:backgroundTint="@color/colorGreen"
         android:orientation="vertical"
+        android:id="@+id/donate_count_layout"
         android:gravity="center">
 
         <TextView
